@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Careers · Job Application</title>
+  <!-- Font Awesome for icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f7f9fc 0%, #eef2f7 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* main card */
+    .application-container {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 30px 50px -20px rgba(0, 20, 30, 0.25), 0 10px 20px -8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    /* header */
+    .app-header {
+      background: #0a2b3c;
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      background: #24c7a8;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a2b3c;
+      font-size: 1.6rem;
+      font-weight: 700;
+      box-shadow: 0 8px 16px -4px rgba(36, 199, 168, 0.3);
+    }
+
+    .logo-text {
+      color: white;
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-text span {
+      color: #24c7a8;
+      font-weight: 700;
+    }
+
+    .header-badge {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      color: #cfdde6;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-badge i {
+      color: #24c7a8;
+    }
+
+    /* job overview banner */
+    .job-banner {
+      padding: 2rem 2.5rem 1.25rem 2.5rem;
+      border-bottom: 1px solid #e9eef3;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+
+    .job-title h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #0b1e2b;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .job-title h1 i {
+      color: #24c7a8;
+      font-size: 1.8rem;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.6rem;
+      color: #4b6879;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .job-meta i {
+      margin-right: 6px;
+      color: #24c7a8;
+      width: 16px;
+    }
+
+    .remote-badge {
+      background: #e3f9f3;
+      color: #0c7a63;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    /* progress indicator */
+    .progress-track {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 2.5rem;
+      background: #fafdff;
+      border-bottom: 1px solid #e9eef3;
+      gap: 2rem;
+    }
+
+    .progress-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #8899a8;
+    }
+
+    .progress-step.active {
+      color: #0b1e2b;
+      font-weight: 600;
+    }
+
+    .step-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #e1e9f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #5b7a8c;
+      font-weight: 600;
+    }
+
+    .progress-step.active .step-circle {
+      background: #24c7a8;
+      color: #0a2b3c;
+      box-shadow: 0 4px 10px -2px rgba(36, 199, 168, 0.4);
+    }
+
+    .progress-step.completed .step-circle {
+      background: #24c7a8;
+      color: #0a2b3c;
+    }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: #dae3eb;
+      margin: 0 0.5rem;
+    }
+
+    .step-line.filled {
+      background: #24c7a8;
+    }
+
+    /* two column layout */
+    .application-body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      background: #ffffff;
+    }
+
+    /* form section */
+    .form-section {
+      padding: 2rem 2.5rem 2.5rem 2.5rem;
+      background: #ffffff;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0b1e2b;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.2px;
+    }
+
+    .section-title i {
+      color: #24c7a8;
+      font-size: 1.2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #2f4b5e;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .form-group label i {
+      color: #8899a8;
+      font-size: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #e2eaf1;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      background: #ffffff;
+      transition: 0.2s;
+      color: #0b1e2b;
+      font-weight: 500;
+      outline: none;
+      width: 100%;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #24c7a8;
+      box-shadow: 0 0 0 4px rgba(36, 199, 168, 0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #b1c3d1;
+      font-weight: 400;
+    }
+
+    .file-upload {
+      border: 2px dashed #d9e4ed;
+      border-radius: 16px;
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #fbfdff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .file-upload i {
+      font-size: 1.8rem;
+      color: #24c7a8;
+    }
+
+    .file-upload span {
+      font-size: 0.9rem;
+      color: #4b6879;
+      font-weight: 500;
+    }
+
+    .file-upload small {
+      font-size: 0.75rem;
+      color: #a0b4c4;
+    }
+
+    .file-upload:hover {
+      background: #f1faf8;
+      border-color: #24c7a8;
+    }
+
+    /* checkbox & radio */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #24c7a8;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      font-size: 0.9rem;
+      color: #2f4b5e;
+      font-weight: 500;
+    }
+
+    .checkbox-group a {
+      color: #24c7a8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* buttons */
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: flex-end;
+      border-top: 1px solid #eef3f8;
+      padding-top: 1.8rem;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      letter-spacing: -0.2px;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #f0f5fa;
+      color: #2f4b5e;
+      border: 1px solid #e2eaf1;
+    }
+
+    .btn-secondary:hover {
+      background: #e6eef7;
+    }
+
+    .btn-primary {
+      background: #24c7a8;
+      color: #0a2b3c;
+      box-shadow: 0 10px 20px -8px rgba(36, 199, 168, 0.5);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: #1eb699;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px -8px rgba(36, 199, 168, 0.6);
+    }
+
+    .btn-primary i {
+      font-size: 1rem;
+    }
+
+    /* right sidebar (company + tips) */
+    .sidebar {
+      background: #fafdff;
+      padding: 2rem 2rem 2rem 1.8rem;
+      border-left: 1px solid #e9eef3;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .company-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eef3f8;
+    }
+
+    .company-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .company-logo {
+      width: 54px;
+      height: 54px;
+      background: #0a2b3c;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #24c7a8;
+      font-size: 1.8rem;
+      font-weight: 700;
+      box-shadow: 0 10px 16px -6px rgba(10, 43, 60, 0.2);
+    }
+
+    .company-name h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0b1e2b;
+    }
+
+    .company-name p {
+      font-size: 0.8rem;
+      color: #6c8697;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .company-name p i {
+      color: #f5b342;
+    }
+
+    .company-stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.2rem 0 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e9eef3;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item .stat-number {
+      font-weight: 700;
+      color: #0b1e2b;
+      font-size: 1rem;
+    }
+
+    .stat-item .stat-label {
+      font-size: 0.7rem;
+      color: #7a94a5;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .tips-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid #eef3f8;
+    }
+
+    .tips-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0b1e2b;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tips-card h4 i {
+      color: #24c7a8;
+    }
+
+    .tip-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #35505f;
+      line-height: 1.4;
+    }
+
+    .tip-item i {
+      color: #24c7a8;
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+
+    /* thank you state (hidden) */
+    .thankyou-message {
+      display: none;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .thankyou-message i {
+      font-size: 3.5rem;
+      color: #24c7a8;
+      margin-bottom: 1rem;
+    }
+
+    .thankyou-message h2 {
+      font-size: 1.8rem;
+      color: #0b1e2b;
+      margin-bottom: 0.5rem;
+    }
+
+    .thankyou-message p {
+      color: #5b7a8c;
+      margin-bottom: 2rem;
+    }
+
+    /* responsive */
+    @media (max-width: 850px) {
+      .application-body {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-left: none;
+        border-top: 1px solid #e9eef3;
+        padding: 2rem;
+      }
+      .job-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .app-header {
+        padding: 1.25rem 1.5rem;
+      }
+      .form-section {
+        padding: 1.8rem 1.5rem;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      .progress-track {
+        padding: 0.75rem 1.5rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .job-title h1 {
+        font-size: 1.5rem;
+      }
+      .form-actions {
+        justify-content: center;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="application-container" id="appContainer">
+  <!-- header -->
+  <header class="app-header">
+    <div class="logo-area">
+      <div class="logo-icon">N</div>
+      <div class="logo-text">Nexus<span>Careers</span></div>
+    </div>
+    <div class="header-badge">
+      <i class="fas fa-shield-alt"></i> Secure application
+    </div>
+  </header>
+
+  <!-- job banner -->
+  <div class="job-banner">
+    <div class="job-title">
+      <h1>
+        <i class="fas fa-briefcase"></i> Senior Product Designer
+      </h1>
+      <div class="job-meta">
+        <span><i class="fas fa-map-pin"></i> San Francisco, CA</span>
+        <span><i class="fas fa-clock"></i> Full-time</span>
+        <span><i class="fas fa-dollar-sign"></i> $130k – $170k</span>
+      </div>
+    </div>
+    <div class="remote-badge">
+      <i class="fas fa-wifi"></i> Remote-friendly
+    </div>
+  </div>
+
+  <!-- progress -->
+  <div class="progress-track">
+    <div class="progress-step completed">
+      <span class="step-circle"><i class="fas fa-check" style="font-size: 0.7rem;"></i></span>
+      <span>Details</span>
+    </div>
+    <div class="step-line filled"></div>
+    <div class="progress-step active">
+      <span class="step-circle">2</span>
+      <span>Application</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="progress-step">
+      <span class="step-circle">3</span>
+      <span>Review</span>
+    </div>
+  </div>
+
+  <!-- main body (form + sidebar) -->
+  <div class="application-body" id="applicationBody">
+    <div class="form-section">
+      <form id="jobApplicationForm" novalidate>
+        <div class="section-title">
+          <i class="fas fa-user-circle"></i> Personal information
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> First name</label>
+            <input type="text" id="firstName" placeholder="Jordan" value="Jordan">
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Last name</label>
+            <input type="text" id="lastName" placeholder="Lee" value="Lee">
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" placeholder="jordan.lee@example.com" value="jordan.lee@example.com">
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone-alt"></i> Phone</label>
+            <input type="tel" id="phone" placeholder="(415) 555-1234" value="(415) 555-1234">
+          </div>
+          <div class="form-group full-width">
+            <label><i class="fas fa-link"></i> Portfolio / LinkedIn</label>
+            <input type="url" id="portfolio" placeholder="https://linkedin.com/in/jordanlee" value="https://linkedin.com/in/jordanlee">
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 2rem;">
+          <i class="fas fa-file-alt"></i> Documents
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label><i class="fas fa-paperclip"></i> Resume / CV</label>
+            <div class="file-upload" id="fileUploadBox">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Click to upload or drag & drop</span>
+              <small>PDF, DOCX (max 5MB)</small>
+              <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display: none;">
+            </div>
+            <small id="fileNameDisplay" style="color: #24c7a8; font-weight: 500; margin-top: 4px;"></small>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 2rem;">
+          <i class="fas fa-comment-dots"></i> Additional questions
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label><i class="fas fa-question-circle"></i> Why are you interested in this role?</label>
+            <textarea id="coverLetter" rows="4" placeholder="Tell us briefly what excites you about Nexus...">I've been following Nexus's work in the design community and I'm excited about the opportunity to shape product experiences at scale.</textarea>
+          </div>
+          <div class="form-group full-width">
+            <label><i class="fas fa-calendar-check"></i> Available start date</label>
+            <select id="startDate">
+              <option value="2weeks">2 weeks from offer</option>
+              <option value="1month">1 month from offer</option>
+              <option value="2months">2 months from offer</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="termsCheck" checked>
+          <label for="termsCheck">I agree to the <a href="#">terms & privacy policy</a> and allow Nexus to contact me.</label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="saveDraftBtn"><i class="far fa-save"></i> Save draft</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-paper-plane"></i> Submit application</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-logo">N</div>
+          <div class="company-name">
+            <h4>Nexus Studio</h4>
+            <p><i class="fas fa-star"></i> 4.9 · 120 reviews</p>
+          </div>
+        </div>
+        <p style="font-size: 0.9rem; color: #4b6879; line-height: 1.5;">Design-led product studio building tools for creative teams. Remote-first, async culture.</p>
+        <div class="company-stats">
+          <div class="stat-item">
+            <div class="stat-number">50–100</div>
+            <div class="stat-label">Employees</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2016</div>
+            <div class="stat-label">Founded</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9</div>
+            <div class="stat-label">Rating</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips-card">
+        <h4><i class="fas fa-lightbulb"></i> Application tips</h4>
+        <div class="tip-item">
+          <i class="fas fa-check-circle"></i>
+          <span>Tailor your portfolio to showcase product design work.</span>
+        </div>
+        <div class="tip-item">
+          <i class="fas fa-check-circle"></i>
+          <span>We review applications within 3 business days.</span>
+        </div>
+        <div class="tip-item">
+          <i class="fas fa-check-circle"></i>
+          <span>Have questions? Reach out to careers@nexus.studio</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- thank you message (hidden by default) -->
+  <div class="thankyou-message" id="thankyouMessage">
+    <i class="fas fa-check-circle"></i>
+    <h2>Application submitted!</h2>
+    <p>Thanks, Jordan. We've received your application and will be in touch soon.</p>
+    <button class="btn btn-primary" id="backToFormBtn" style="margin: 0 auto;">Back to application</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // DOM elements
+    const form = document.getElementById('jobApplicationForm');
+    const applicationBody = document.getElementById('applicationBody');
+    const thankyouMessage = document.getElementById('thankyouMessage');
+    const submitBtn = document.getElementById('submitBtn');
+    const saveDraftBtn = document.getEle
